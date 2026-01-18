@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Services - SOCHA Conciergerie</title>
+    <link rel="stylesheet" href="services.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-container">
+        <div class="header-left">
+        <div class="burger-menu" id="burgerTrigger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="index.html" class="brand-link">
+            <div class="title">
+                <h1>SOCHA</h1>
+                <span>CONCIERGERIE</span>
+            </div>
+        </a>
+    </div>
+        <div class="logo-container">
+            <img src="images/logo-socha.png" alt="Logo" class="logo">
+        </div>
+    </div>
+</header>
+
+<div class="nav-overlay" id="navMenu">
+    <span class="close-menu" id="closeTrigger">&times;</span>
+    <nav class="overlay-links">
+        <a href="index.html">ACCUEIL</a>
+        <a href="services.html">SERVICES</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
+</div>
+
+<section class="services-hero">
+    <h1>L'excellence au service de votre bien</h1>
+    <p>Une gestion locale, humaine et transparente pour votre sérénité.</p>
+</section>
+
+<section class="services-full-bg">
+<section class="details-container">
+    <div class="service-detail-card">
+        <div class="service-icon">🔑</div>
+        <h2>Accueil & Départs</h2>
+        <ul>
+            <li>Accueil personnalisé des voyageurs sur place</li>
+            <li>Remise des clés et présentation du logement</li>
+            <li>Vérification de l'identité et état des lieux de sortie</li>
+            <li>Gestion des imprévus (perte de clés, assistance 7j/7)</li>
+        </ul>
+    </div>
+
+    <div class="service-detail-card">
+        <div class="service-icon">✨</div>
+        <h2>Ménage & Linge</h2>
+        <ul>
+            <li>Nettoyage professionnel complet entre chaque séjour</li>
+            <li>Blanchisserie : linge de lit et serviettes</li>
+            <li>Réapprovisionnement des consommables (café, savon, papier toilette)</li>
+            <li>Contrôle qualité rigoureux avant chaque arrivée</li>
+        </ul>
+    </div>
+
+    <div class="service-detail-card">
+        <div class="service-icon">📈</div>
+        <h2>Revenus & Stratégie</h2>
+        <ul>
+            <li>Ajustement quotidien des prix (selon les événements et saisons)</li>
+            <li>Optimisation du référencement de votre annonce sur Airbnb</li>
+            <li>Sélection rigoureuse des profils voyageurs</li>
+            <li>Rapports mensuels de performances</li>
+        </ul>
+    </div>
+
+    <div class="service-detail-card deco-premium">
+        <div class="service-icon">🖼️</div>
+        <h2>Design & Décoration</h2>
+        <p class="deco-intro">Un logement beau se loue 30% plus cher.</p>
+        <ul>
+            <li>Conseils en aménagement pour maximiser le coup de cœur</li>
+            <li>Shooting photo professionnel inclus dans l'option</li>
+            <li>Mise en scène (Home Staging)</li>
+        </ul>
+        <div class="deco-price">Sur devis (à partir de 150€)</div>
+    </div>
+</section>
+</section>
+
+<section class="calculator-section">
+    <div class="calculator-card">
+        <h2>Simulateur de revenus</h2>
+        <p>Découvrez combien votre bien peut vous rapporter par mois avec SOCHA.</p>
+        
+        <div class="calc-inputs">
+            <div class="input-group">
+                <label>Prix moyen de la nuitée (€)</label>
+                <input type="number" id="nightPrice" value="100" min="1" oninput="calculate()">
+            </div>
+            <div class="input-group">
+                <label>Nuits louées par mois</label>
+                <input type="range" id="nightsCount" min="1" max="30" value="20" oninput="calculate()">
+                <span id="nightsValue">20 nuits</span>
+            </div>
+        </div>
+
+        <div class="calc-result">
+            <div class="result-item">
+                <span>Revenu Brut estimé</span>
+                <strong id="totalBrut">2000 €</strong>
+            </div>
+            <div class="result-item highlight">
+                <span>Votre gain net (après commission SOCHA 25%)</span>
+                <strong id="totalNet">1500 €</strong>
+            </div>
+        </div>
+        <p class="calc-disclaimer">*Cette simulation ne prend pas en compte les frais de ménage (payés par les voyageurs).</p>
+    </div>
+</section>
+
+<section class="cta-section">
+    <h3>Prêt à booster vos revenus ?</h3>
+    <a href="contact.html" class="hero-button">Demander une estimation gratuite</a>
+</section>
+
+<script>
+    function calculate() {
+        const nightPrice = document.getElementById('nightPrice').value;
+        const nightsCount = document.getElementById('nightsCount').value;
+        
+        // Mise à jour du petit texte qui affiche le nombre de nuits
+        document.getElementById('nightsValue').innerText = nightsCount + " nuits";
+        
+        // Calculs mathématiques
+        const totalBrut = nightPrice * nightsCount;
+        const totalNet = totalBrut * 0.75; // On retire tes 25% de commission
+        
+        // On renvoie le résultat dans les balises strong
+        document.getElementById('totalBrut').innerText = totalBrut + " €";
+        document.getElementById('totalNet').innerText = totalNet + " €";
+    }
+    
+    // On lance le calcul une fois au chargement pour que ce ne soit pas à 0 au début
+    window.onload = calculate;
+    </script>
+<script>
+    const burger = document.getElementById('burgerTrigger');
+    const menu = document.getElementById('navMenu');
+    const close = document.getElementById('closeTrigger');
+
+    // Au clic sur le burger, on ajoute la classe "active"
+    burger.onclick = function() {
+        menu.classList.add('active');
+    };
+
+    // Au clic sur la croix, on retire la classe "active"
+    close.onclick = function() {
+        menu.classList.remove('active');
+    };
+</script>
+
+</body>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-title">
+      SOCHA - Conciergerie Airbnb | Bordeaux
+    </div>
+    <div class="footer-contact">
+      Email : <a href="mailto:contact@socha.fr">contact@socha.fr</a> |
+      Tel : <a href="tel:0612345678">06 12 34 56 78</a>
+    </div>
+    <div class="footer-copy">
+      © 2026 Socha - Tous droits réservés | <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a>
+    </div>
+  </div>
+</footer>
+</html>

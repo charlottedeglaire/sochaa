@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - SOCHA Conciergerie</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-container">
+        <div class="header-left">
+        <div class="burger-menu" id="burgerTrigger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="index.html" class="brand-link">
+            <div class="title">
+                <h1>SOCHA</h1>
+                <span>CONCIERGERIE</span>
+            </div>
+        </a>
+    </div>
+        <div class="logo-container">
+            <img src="images/logo-socha.png" alt="Logo" class="logo">
+        </div>
+    </div>
+</header>
+
+<div class="nav-overlay" id="navMenu">
+    <span class="close-menu" id="closeTrigger">&times;</span>
+    <nav class="overlay-links">
+        <a href="index.html">ACCUEIL</a>
+        <a href="services.html">SERVICES</a>
+        <a href="contact.html">CONTACT</a>
+    </nav>
+</div>
+
+<main class="contact-section">
+    <div class="contact-overlay">
+        <div class="contact-card">
+            <h2>CONTACTEZ-NOUS</h2>
+            <p class="contact-subtitle">Parlez-nous de votre projet, nous vous répondrons sous 24h.</p>
+
+            <form action="https://formspree.io/f/ton-identifiant" method="POST" class="contact-form">
+                <div class="form-group-row">
+                    <input type="text" name="nom" placeholder="Nom" required>
+                    <input type="text" name="prenom" placeholder="Prénom" required>
+                </div>
+
+                <input type="email" name="email" placeholder="Adresse Email" required>
+                <input type="tel" name="telephone" placeholder="Numéro de téléphone" required>
+                
+                <textarea name="message" rows="5" placeholder="Votre demande (votre bien, vos besoins...)" required></textarea>
+
+                <button type="submit" class="submit-btn">ENVOYER LA DEMANDE</button>
+            </form>
+        </div>
+    </div>
+</main>
+<script>
+    const burger = document.getElementById('burgerTrigger');
+    const menu = document.getElementById('navMenu');
+    const close = document.getElementById('closeTrigger');
+
+    // Au clic sur le burger, on ajoute la classe "active"
+    burger.onclick = function() {
+        menu.classList.add('active');
+    };
+
+    // Au clic sur la croix, on retire la classe "active"
+    close.onclick = function() {
+        menu.classList.remove('active');
+    };
+</script>
+</body>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-title">
+      SOCHA - Conciergerie Airbnb | Bordeaux
+    </div>
+    <div class="footer-contact">
+      Email : <a href="mailto:contact@socha.fr">contact@socha.fr</a> |
+      Tel : <a href="tel:0612345678">06 12 34 56 78</a>
+    </div>
+    <div class="footer-copy">
+      © 2026 Socha - Tous droits réservés | <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a>
+    </div>
+  </div>
+
+
+</footer>
+
+
+</html>
